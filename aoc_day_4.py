@@ -68,7 +68,6 @@ def main():
         for potential_passport in batch_file:
             partial_passport = potential_passport.strip('\n').split(' ')
             if not partial_passport[0]:
-                #print(passport_candidate)
                 is_valid_passport = validate_passport(passport_candidate)
                 if is_valid_passport:
                     nof_valid_passports_1 += 1
@@ -77,18 +76,16 @@ def main():
                     )
                     if is_valid_passport:
                         nof_valid_passports_2 += 1
-                        #print('Is valid')
                 passport_candidate = {}
             else:
                 parse_passport(partial_passport, passport_candidate)
-        #print(passport_candidate)
+
         is_valid_passport = validate_passport(passport_candidate)
         if is_valid_passport:
             nof_valid_passports_1 += 1
             is_valid_passport = validate_passort_part_2(passport_candidate)
             if is_valid_passport:
                 nof_valid_passports_2 += 1
-                print('Is valid')
 
         print(f'Number of valid passports part 1 : {nof_valid_passports_1}')
         print(f'Number of valid passports part 2 : {nof_valid_passports_2}')
